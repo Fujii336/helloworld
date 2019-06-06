@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<!--
+       Licensed to the Apache Software Foundation (ASF) under one
+       or more contributor license agreements.  See the NOTICE file
+       distributed with this work for additional information
+       regarding copyright ownership.  The ASF licenses this file
+       to you under the Apache License, Version 2.0 (the
+       "License"); you may not use this file except in compliance
+       with the License.  You may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+       Unless required by applicable law or agreed to in writing,
+       software distributed under the License is distributed on an
+       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+       KIND, either express or implied.  See the License for the
+       specific language governing permissions and limitations
+       under the License.
+-->
+<html>
+  <head>
+    <title>PhoneGap</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src * data: gap: https://ssl.gstatic.com; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+    <script type="text/javascript" src="components/loader.js"></script>
+    <link rel="stylesheet" type="text/css" href="components/loader.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsenui.css">
+    <link rel="stylesheet" href="https://unpkg.com/onsenui/css/onsen-css-components.min.css">
+    <script src="https://unpkg.com/onsenui/js/onsenui.min.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("deviceready", onDeviceReady, false);
+        function onDeviceReady(){
+            console.log("PhoneGap is ready.");
+        }
+    </script>
+    <link rel="stylesheet" href="phonegap-demo/master.css" type="text/css" media="screen" title="no title">
+    <script type="text/javascript" charset="utf-8" src="phonegap-demo/main.js"></script>
+  </head>
+
+  <body onload="init();" id="stage" class="theme">
+
+  <ons-page>
+    <ons-toolbar>
+      <div class="center">Current latitude and longitude</div>
+    </ons-toolbar>
+    <p style="text-align: center">
+      <ons-button onclick="app.showFromTemplate()">START</ons-button>
+      <br><br>
+      <ons-button onclick="showToast()">HELP!</ons-button>
+      <div id="result" ></div>
+
+      <ons-card>
+        <div class="title">RealTime</div>
+        <div class="content">
+          <ons-list>
+            <ons-list-item >Latitude　：　<div id="resultLat" ></div></ons-list-item>
+            <ons-list-item >Longitude：　<div id="resultLon" ></div></ons-list-item>
+          </ons-list>
+        </div>
+      </ons-card>
+
+      <ons-card>
+      <div class="title">RealTime</div>
+      <div class="content">
+        <ons-list>
+          <ons-list-item>Distance　：　<div id="distance" ></div></ons-list-item>
+        </ons-list>
+      </div>
+      </ons-card>
+
+      <ons-card>
+        <div class="title">TOKYO-KAWASAKI</div>
+        <div class="content">
+          <ons-list>
+            <ons-list-item>Distance　：　<div id="exDistance" ></div></ons-list-item>
+            <ons-list-item >TOKYO　Latitude　：　35.689487</ons-list-item>
+            <ons-list-item >TOKYO　Longitude：　139.691706</ons-list-item>
+            <ons-list-item >KAWASAKI　Latitude　：　35.5562073</ons-list-item>
+            <ons-list-item >KAWASAKI　Longitude：　139.5723855</ons-list-item>
+          </ons-list>
+        </div>
+      </ons-card>
+
+    </p>
+  </ons-page>
+
+<template id="action-sheet.html">
+  <ons-action-sheet id="sheet" cancelable title="From template">
+    <ons-action-sheet-button icon="md-square-o" onclick="getLocation(); app.hideFromTemplate()">Start</ons-action-sheet-button>
+
+    <ons-action-sheet-button icon="md-square-o" onclick="endLocation(); app.hideFromTemplate()" modifier="destructive">Stop</ons-action-sheet-button>
+
+    <ons-action-sheet-button icon="md-close" onclick="app.hideFromTemplate()">Cancel</ons-action-sheet-button>
+  </ons-action-sheet>
+
+</template>
+
+    
+
+  </body>
+</html>
