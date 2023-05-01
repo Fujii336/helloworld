@@ -7,7 +7,7 @@
     },
     "devDependencies": {
         "browser-sync": "^2.24.5",
-        "cordova": "^7.1.0"
+        "cordova": "^11.1.0"
     },
     "dependencies": {
         "cordova-custom-config": "5.0.2",
